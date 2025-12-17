@@ -63,6 +63,7 @@ export const Hero = () => {
               src="/profile.jpeg"
               alt="profile_pic"
               fill
+              sizes="(max-width: 768px) 100vw, 400px"
               className="object-cover w-full h-full"
               priority
             />
