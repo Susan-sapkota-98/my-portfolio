@@ -82,7 +82,6 @@ export const MovingBorder = ({
   ry?: string;
   [key: string]: any;
 }) => {
-  // ✅ FIX: provide initial value and correct type
   const pathRef = useRef<SVGRectElement | null>(null);
   const progress = useMotionValue<number>(0);
 

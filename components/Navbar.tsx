@@ -141,9 +141,8 @@ function Navbar({ className }: { className?: string }) {
         </div>
       </div>
 
-      {/* ================= MOBILE MENU ================= */}
       {mobileOpen && (
-        <div className="md:hidden mt-4 bg-white rounded-md shadow-lg py-4 flex flex-col items-center gap-4">
+        <div className="md:hidden mt-4 bg-ambient rounded-md shadow-lg py-4 flex flex-col items-center gap-4">
           {renderMenuLink("#home", "Home")}
           {renderMenuLink("#about", "About")}
           {renderMenuLink("#projects", "Projects")}
