@@ -4,6 +4,8 @@ import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Analytics } from "@vercel/analytics/react";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,13 +35,16 @@ export const metadata: Metadata = {
       "Explore Susan Sapkota's portfolio — projects, skills, and experience in React, Next.js, Node.js, and more.",
     url: "https://www.susansapkota.com.np",
     siteName: "Susan Sapkota Portfolio",
-    images: [{ url: "/profile.jpeg", width: 1200, height: 630, alt: "Susan Sapkota" }],
+    images: [
+      { url: "/profile.jpeg", width: 1200, height: 630, alt: "Susan Sapkota" },
+    ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Susan Sapkota | Web Developer",
-    description: "Computer Engineering student building web apps with React, Next.js & Node.js.",
+    description:
+      "Computer Engineering student building web apps with React, Next.js & Node.js.",
     images: ["/profile.jpeg"],
   },
   robots: { index: true, follow: true },
@@ -79,6 +84,8 @@ export default function RootLayout({
           </div>
           {children}
         </ThemeProvider>
+        <Analytics />
+        <GoogleAnalytics gaId="G-4JQT15HHYB" />
       </body>
     </html>
   );
