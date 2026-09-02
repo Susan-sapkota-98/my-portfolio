@@ -7,6 +7,7 @@ import { Notes } from "@/components/Notes";
 import { Contact } from "@/components/Contact";
 import Projects from "@/components/Projects";
 import About from "@/components/About";
+import { VisitTracker } from "@/components/VisitTracker";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <h1 className="sr-only">
         Susan Sapkota — Web Developer & Computer Engineering Student
       </h1>
+      <VisitTracker />
       <Hero />
       <About />
       <Skills />
