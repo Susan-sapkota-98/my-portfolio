@@ -10,7 +10,7 @@ export async function POST(req: Request) {
     from: 'Portfolio Alert <notify@susansapkota.com.np>',
     to: 'susansapkota986@gmail.com',
     subject: '👀 Someone visited your portfolio!',
-    text: `A visitor just opened your portfolio at: ${page}\nTime: ${new Date().toLocaleString()}`,
+    text: `A visitor just opened your portfolio at: ${page}\nTime: ${new Date().toLocaleString("en-US", { timeZone: "Asia/Kathmandu" })}`,
   });
 
   return NextResponse.json({ success: true });
