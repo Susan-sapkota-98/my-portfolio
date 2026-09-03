@@ -6,23 +6,21 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(req: Request): Promise<NextResponse<{ success: boolean }>> {
   const { page } = await req.json();
 
-  // Get visitor IP
   const ip =
     req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
     req.headers.get('x-real-ip') ||
     'unknown';
 
-  // Look up location from IP
   let locationText = 'Unknown location';
   try {
-    const geoRes = await fetch(`https://ipapi.co/${ip}/json/`);
+    const geoRes = await fetch(`https://ipwho.is/${ip}`);
     const geo = await geoRes.json();
     console.log('GEO RESPONSE:', geo);
 
-    if (geo.error) {
-      console.error('ipapi.co error reason:', geo.reason);
+    if (geo.success === false) {
+      console.error('ipwho.is error:', geo.message);
     } else {
-      locationText = `${geo.city || 'Unknown city'}, ${geo.region || ''}, ${geo.country_name || 'Unknown country'}`;
+      locationText = `${geo.city || 'Unknown city'}, ${geo.region || ''}, ${geo.country || 'Unknown country'}`;
     }
   } catch (e) {
     console.error('Geo lookup failed:', e);
